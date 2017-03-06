@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PricingSystemTest < ActiveSupport::TestCase
+class MaterialChargeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

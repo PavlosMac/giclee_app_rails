@@ -1,0 +1,3 @@
+class MaterialCharge < ApplicationRecord
+  
+end
