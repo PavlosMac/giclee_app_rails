@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306165226) do
+ActiveRecord::Schema.define(version: 20170307170110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,8 +88,10 @@ ActiveRecord::Schema.define(version: 20170306165226) do
     t.float    "sell_b2"
     t.float    "sell_b3"
     t.float    "sell_b4"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "material_id"
+    t.index ["material_id"], name: "index_material_charges_on_material_id", using: :btree
   end
 
   create_table "material_costs", force: :cascade do |t|
@@ -102,10 +104,10 @@ ActiveRecord::Schema.define(version: 20170306165226) do
     t.float    "cost_b2"
     t.float    "cost_b3"
     t.float    "cost_b4"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "materials_id"
-    t.index ["materials_id"], name: "index_material_costs_on_materials_id", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "material_id"
+    t.index ["material_id"], name: "index_material_costs_on_material_id", using: :btree
   end
 
   create_table "materials", force: :cascade do |t|
@@ -124,15 +126,6 @@ ActiveRecord::Schema.define(version: 20170306165226) do
     t.datetime "updated_at",         null: false
   end
 
-  create_table "pricing_systems", force: :cascade do |t|
-    t.float    "presentation"
-    t.float    "standard"
-    t.float    "premium"
-    t.float    "premium_plus"
-    t.float    "canvas_textile"
-    t.float    "special_1"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
+  add_foreign_key "material_charges", "materials"
+  add_foreign_key "material_costs", "materials", on_delete: :cascade
 end

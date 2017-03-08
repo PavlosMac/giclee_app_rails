@@ -8,6 +8,11 @@
 
 
 JobEntry.delete_all
+ClientDetail.delete_all
+
+MaterialCost.delete_all
+MaterialCharge.delete_all
+Material.delete_all
 
 JobEntry.create( {material: "Novajet Art 255gsm", size_width: 20, size_height: 15, units: 'in',
   runs: 1, prints: 1, margin: 1.5, per_print: 17.70, discount: 0.05, price: 16.82,
@@ -17,17 +22,20 @@ JobEntry.create( {material: "Ashgrove suilven", size_width: 42, size_height: 12,
     runs: 1, prints: 1, margin: 0, per_print: 0, discount: 0.05, price: 34.20,
     originals: 1} )
 
-Material.delete_all
 
-Material.create( {product_name: "Novajet Art 255gsm", guk_name: "none", roll_width_in: 44, roll_length_m: 30,
+
+Material.create( { product_name: "Novajet Art 255gsm", guk_name: "none", roll_width_in: 44, roll_length_m: 30,
       factor: 7, rounded_sale_price: 71, list_price: 240.00, cost_per_sqm: 7.16, ink_per_sqm: 3,
       supplier_discount: 0, sell_per_sqm: 71.11} )
+
+
+
 
 Material.create( {product_name: "Ashgrove suilven", guk_name: "none", roll_width_in: 42, roll_length_m: 12,
         factor: 8.50, rounded_sale_price: 107, list_price: 122.00, cost_per_sqm: 9.53, ink_per_sqm: 3,
         supplier_discount: 0, sell_per_sqm: 106.51 } )
 
-ClientDetail.delete_all
+
 
 ClientDetail.create( {company_name: 'st helens church', address_1: '115 Great western Rd',
           address_2: 'glasgow', city: 'Glasgow', post_code: 'gh4 2fk',
