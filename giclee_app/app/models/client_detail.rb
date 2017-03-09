@@ -1,3 +1,3 @@
 class ClientDetail < ApplicationRecord
-  belongs_to :job_entry
+  has_and_belongs_to_many :job_entries
 end

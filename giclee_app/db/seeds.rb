@@ -37,12 +37,12 @@ Material.create( {product_name: "Ashgrove suilven", guk_name: "none", roll_width
 
 
 
-ClientDetail.create( {company_name: 'st helens church', address_1: '115 Great western Rd',
+ClientDetail.create({company_name: 'st helens church', address_1: '115 Great western Rd',
           address_2: 'glasgow', city: 'Glasgow', post_code: 'gh4 2fk',
           telephone_number: '01486-865-245', mobile_number: '07789847319',
-          contact_name: 'Henry Davis', email: 'henrymay43245@gmail.com'})
+          contact_name: 'Henry Davis', email: 'henrymay43245@gmail.com'} )
 
-ClientDetail.create( {company_name: 'greyfriars bobby', address_1: '837 John Pauls st',
+ClientDetail.create({company_name: 'greyfriars bobby', address_1: '837 John Pauls st',
             address_2: 'Bayfield View', city: 'Inverness', post_code: 'iv77 8ik',
             telephone_number: '01326-215-284', mobile_number: '0787463392',
-            contact_name: 'Sir James Watson', email: 'james839283@gmail.com' } )
+            contact_name: 'Sir James Watson', email: 'james839283@gmail.com'})

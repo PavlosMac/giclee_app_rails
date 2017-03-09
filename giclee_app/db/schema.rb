@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307170110) do
+ActiveRecord::Schema.define(version: 20170308185810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,18 +64,18 @@ ActiveRecord::Schema.define(version: 20170307170110) do
     t.integer  "originals"
   end
 
+  create_table "job_entries_client_details", id: false, force: :cascade do |t|
+    t.integer "job_entry_id"
+    t.integer "client_detail_id"
+    t.index ["client_detail_id"], name: "index_job_entries_client_details_on_client_detail_id", using: :btree
+    t.index ["job_entry_id"], name: "index_job_entries_client_details_on_job_entry_id", using: :btree
+  end
+
   create_table "job_entries_materials", id: false, force: :cascade do |t|
     t.integer "job_entry_id", null: false
     t.integer "material_id",  null: false
     t.index ["job_entry_id"], name: "index_job_entries_materials_on_job_entry_id", using: :btree
     t.index ["material_id"], name: "index_job_entries_materials_on_material_id", using: :btree
-  end
-
-  create_table "job_entries_pricing_systems", id: false, force: :cascade do |t|
-    t.integer "job_entry_id",      null: false
-    t.integer "pricing_system_id", null: false
-    t.index ["job_entry_id"], name: "index_job_entries_pricing_systems_on_job_entry_id", using: :btree
-    t.index ["pricing_system_id"], name: "index_job_entries_pricing_systems_on_pricing_system_id", using: :btree
   end
 
   create_table "material_charges", force: :cascade do |t|
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20170307170110) do
     t.string   "guk_name"
     t.integer  "roll_width_in"
     t.integer  "roll_length_m"
-    t.integer  "factor"
+    t.float    "factor"
     t.integer  "rounded_sale_price"
     t.float    "list_price"
     t.float    "cost_per_sqm"
