@@ -1,6 +1,11 @@
 require 'test_helper'
+require 'active_support/core_ext/module/delegation'
 
-class JobDEntryTest < ActiveSupport::TestCase
+module Shoulda
+  module Matchers
+    module ActiveRecord
+      
+class JobEntryTest < ActiveSupport::TestCase
 
   def setup
    @job_entry = JobEntry.new( material: "Ashgrove suilven", size_width: 42, size_height: 12, units: 'in',
@@ -9,7 +14,10 @@ class JobDEntryTest < ActiveSupport::TestCase
  end
 
 
+should has_many(:chargeables)
+
+
   test "materials" do
-    assert_equal 2,
+    assert_equal "Ashgrove suilven", @job_entry.material
   end
 end
